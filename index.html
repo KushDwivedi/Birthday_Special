@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Countdown to Her Birthday 🎂</title>
+  <!-- Inside <head> tag -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="petal-container"></div>
+    <div class="puzzle-container">
+      <h2>My Buddhu Solve This</h2>
+      <div id="puzzle-box"></div>
+      <p id="puzzle-success" class="hidden">Good Girl! ❤️I Love You Too Babu❤️</p>
+    </div>
+
+    
+
+    <div class="message-carousel">
+      <p id="love-message">Loading message...</p>
+    </div>
+    <h1>💖🎂Countdown to Your Special Day 🎂💖</h1>
+    <!--<div id="countdown">
+    <button id="theme-toggle">🌙 Switch to Night Mode</button>
+      <div><span id="days">00</span><p>Days</p></div>
+      <div><span id="hours">00</span><p>Hours</p></div>
+      <div><span id="minutes">00</span><p>Minutes</p></div>
+      <div><span id="seconds">00</span><p>Seconds</p></div>
+    </div>-->
+    <div id="countdown">
+    <button id="theme-toggle">🌙 Switch to Night Mode</button>
+      <div class="countdown-item">
+        <span id="days" class="countdown-number">00</span>
+        <p class="countdown-label">Days</p>
+      </div>
+      <div class="countdown-item">
+        <span id="hours" class="countdown-number">00</span>
+        <p class="countdown-label">Hours</p>
+      </div>
+      <div class="countdown-item">
+        <span id="minutes" class="countdown-number">00</span>
+        <p class="countdown-label">Minutes</p>
+      </div>
+      <div class="countdown-item">
+        <span id="seconds" class="countdown-number">00</span>
+        <p class="countdown-label">Seconds</p>
+      </div>
+    </div>
+
+    <p class="footer-msg">❤️🎈 Can’t wait to celebrate ADITI MONTH 🎈❤️</p>
+    <button id="music-toggle">🔊 Pause Music</button>
+  </div>
+
+  <audio id="bg-music" autoplay loop>
+    <source src="Fitoor.mp4" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+  <div class="scratch-card-container">
+    <img id="hidden-image" src="Us.jpg" alt="Surprise Image" />
+    <canvas id="scratch-canvas"></canvas>
+  </div>
+  
+
+
+  <script src="script.js"></script>
+</body>
+</html>
+

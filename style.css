@@ -1,0 +1,349 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(-45deg, #ffe6f0, #ffccf2, #ffcce6, #fff0f5);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  color: #b30059;
+  transition: background-color 0.5s ease-in-out;
+  text-align: center;
+  overflow-y: auto;
+  height: auto;
+  position: relative;
+  /*min-height: 100vh;*/
+  scrollbar-width: none !important;
+
+  cursor: url("data:image/svg+xml;utf8,\<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'>\<text x='0' y='24' font-size='24'>❤️</text>\</svg>") 16 16, auto;
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.container {
+  margin-top: 2%;
+  z-index: 2;
+  position: relative;
+}
+
+h1 {
+  font-size: 2.8em;
+  margin-bottom: 30px;
+  color: #ff3385;
+}
+
+#countdown {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+#countdown div {
+  background-color: #ffffffcc;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(255, 153, 204, 0.5);
+  border: 2px solid #ff99cc;
+  animation: glow 2s infinite alternate;
+  min-width: 90px;
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 5px #ff99cc; }
+  100% { box-shadow: 0 0 20px #ff99cc; }
+}
+
+#countdown span {
+  font-size: 3em;
+  display: block;
+  color: #cc0066;
+}
+
+#countdown p {
+  margin: 5px 0 0;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.footer-msg {
+  margin-top: 40px;
+  font-size: 1.6em;
+  color: #800040;
+}
+
+#music-toggle {
+  margin-top: 5px;
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  background: #ff99cc;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+#music-toggle:hover {
+  background: #ff66b2;
+}
+
+/* Balloons */
+.balloon {
+  position: absolute;
+  bottom: -100px;
+  width: 50px;
+  height: 70px;
+  background: radial-gradient(circle at 30% 30%, #ff6699, #cc0066);
+  border-radius: 50% 50% 45% 45%;
+  animation: floatUp 10s linear infinite;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+.balloon::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  width: 2px;
+  height: 20px;
+  background: #333;
+  transform: translateX(-50%);
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-120vh); opacity: 0; }
+}
+
+/* Firework particle */
+.firework-particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: red;
+  animation: explode 1s ease-out forwards;
+  opacity: 1;
+}
+
+@keyframes explode {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x), var(--y)) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* Cursor trail hearts */
+.trail-heart {
+  position: absolute;
+  font-size: 16px;
+  pointer-events: none;
+  animation: floatFade 1.2s ease-out forwards;
+}
+
+@keyframes floatFade {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-40px) scale(0.5); opacity: 0; }
+}
+
+button, a {
+  cursor: inherit;
+}
+.scratch-card-container {
+  position: relative;
+  width: 300px;
+  height: 250px;
+  margin: 30px auto; /* was 50px */
+  margin-top: 5px;   /* move it higher */
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 10px #ff99cc;
+}
+
+
+.scratch-card-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+#scratch-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.message-carousel {
+  margin: 20px auto;
+  max-width: 80%;
+  text-align: center;
+  font-size: 1.4rem;
+  color: #ff66a3;
+  font-weight: bold;
+  animation: fadeIn 1s ease-in-out;
+}
+
+#love-message {
+  transition: opacity 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.petal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1; /* behind everything else */
+}
+
+.petal {
+  position: absolute;
+  top: -50px;
+  color: red;
+  font-size: 24px;
+  animation: fall linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Button styling */
+#theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #fff0f6;
+  color: #d63384;
+  border: none;
+  padding: 10px 16px;
+  font-size: 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Night Theme Base */
+body.night {
+  background: radial-gradient(ellipse at top, #2d2a4b 0%, #1e1b2f 100%);
+  transition: background 0.5s ease-in-out;
+}
+
+/* Optional: Adjust other elements in night mode */
+body.night .container,
+body.night .message-carousel,
+body.night .scratch-card-container {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+}
+
+body.night h1,
+body.night p,
+body.night #love-message {
+  color: #e0c8ff;
+}
+
+body.night #theme-toggle {
+  background: #352a4f;
+  color: #fff5fb;
+}
+
+.container,
+.scratch-card-container,
+.message-carousel {
+  background: transparent !important;
+  box-shadow: none;
+}
+
+body.night .countdown-number {
+  color: #ca26ca; /* soft glowing pink or lavender */
+}
+
+body.night .countdown-label {
+  color: #562bad; /* subtle light purple */
+}
+body.night .countdown-number {
+  text-shadow: 0 0 8px #ffb6f2;
+}
+body.night .countdown-item {
+  background-color: rgba(255, 255, 255, 0.05); /* subtle transparent box */
+  border: 1px solid #ffd6ec;
+}
+body.dark-mode #music-toggle {
+  background-color: #352a4f !important;
+  color: #fff5fb!important;
+  border: 1px solid #fff !important;
+}
+
+
+
+
+.puzzle-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+#puzzle-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.puzzle-letter {
+  font-size: 2rem;
+  padding: 10px 20px;
+  border: 2px solid #ff69b4;
+  border-radius: 8px;
+  background-color: #ffe4ec;
+  cursor: grab;
+  user-select: none;
+  transition: transform 0.2s;
+}
+
+.puzzle-letter:active {
+  transform: scale(1.2);
+}
+
+#puzzle-success {
+  font-size: 1.5rem;
+  color: green;
+  margin-top: 20px;
+}
+
+.hidden {
+  display: none;
+}
